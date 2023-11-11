@@ -1,7 +1,7 @@
 #include "patty.h"
 
 /**
- * main - the fuction to the main entry
+ * - the fuction to the main entry
  * @ac: not used
  * @av: in used
  * Return: 0 updated
