@@ -2,49 +2,49 @@
 
 /**
  * main - the fuction to the main entry
- * @ace: not used
- * @avr: in used 
+ * @ac: not used
+ * @av: in used
 * Return: 0 updated
  */
 
-int main(int ace, char **avr)
+int main(int ac, char **av)
 {
 	char *res = NULL, *strt, *del = " \n", **ex;
-	size_t p = 0, r;
-	FILE  *std = stdin;
-	ssize_t parr;
+	size_t n = 0, r;
+	FILE  *st = stdin;
+	ssize_t arr;
 	pid_t pr;
-	(void)ace;
-	
+	(void)ac;
+
 	while (1)
 	{
 		write(1, "#cisfun$ ", 9);
-		parr = getline(&res, &n, std);
-		if (parr == -1)
+		arr = getline(&res, &n, st);
+		if (arr == -1)
 		{
-			write(1, "\n", 1);
+		write(1, "\n", 1);
 			break;
 		}
 		strt = strtok(res, del);
-		rex = malloc(sizeof(char *) * (parr + 1));
-		p = 0;
-		while (strt! = NULL)
+		ex = malloc(sizeof(char *) * (arr + 1));
+		r = 0;
+		while (strt != NULL)
 		{
-			rex[p] = malloc(strlen(strt) + 1);
-			strcpy(rex[p], strt);
-			p++;
+			ex[r] = malloc(strlen(strt) + 1);
+			strcpy(ex[r], strt);
+			r++;
 			strt = strtok(NULL, del);
 		}
-		rex[p] = NULL;
+		ex[r] = NULL;
 		pr = fork();
 		if  (pr == 0)
-			if (execve(pex[0], pex, NULL) == -1)
-				perror(avr[0]);
+			if (execve(ex[0], ex, NULL) == -1)
+				perror(av[0]);
 		wait(NULL);
-		for (r = 0; pex[r] != NULL; r++)
-			free(ex[r]);
-		free(pex);
+		for (r = 0; ex[r] != NULL; r++)
+		free(ex[r]);
+	free(ex);
 	}
 	free(res);
-	return (0);
+	return (0);
 }
