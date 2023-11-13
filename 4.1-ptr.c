@@ -1,10 +1,11 @@
 #include "patty.h"
 
 /**
- * Executting commands using fork and execve.
- * @ex: The array of strings representing the command of its arguments.
- * @av: The array of strings representing the command-line arguments.
+ * extrafunc - Execute a command using fork and execve.
+ * @ex: rray of strings representing the command and its arguments.
+ * @av: array of strings representing the command-line arguments.
  */
+
 void extrafunc(char **ex, char *res)
 {
 	if (strcmp(ex[0], "exit") == 0)

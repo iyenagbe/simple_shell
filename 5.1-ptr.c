@@ -7,7 +7,7 @@
  */
 void extrafunc(char **ex, char *res)
 {
-	if (_strcmp(exe[0], "exit") == 0)
+	if (_strcmp(ex[0], "exit") == 0)
 	{
 		free(res);
 		free_memory(ex);
@@ -15,13 +15,12 @@ void extrafunc(char **ex, char *res)
 	}
 	if (_strcmp(ex[0], "env") == 0)
 	{
-		int i = 0;
-		
-		while (environ[i] != NULL)
+		int r = 0;	
+		while (environ[r] != NULL)
 		{
-			write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
+			write(STDOUT_FILENO, environ[r], _strlen(environ[r]));
 			write(STDOUT_FILENO, "\n", 1);
-			i++;
+			r++;
 		}
 	}
 }
@@ -30,10 +29,10 @@ void extrafunc(char **ex, char *res)
  * _strcmp - compares two strings
  * @s1: first string to compare
  * @s2: second string to compare
- *
  * Return: less than 0 if s1 is less than s2, 0 if they're equal,
  * more than 0 if s1 is greater than s2
  */
+
 int _strcmp(char *s1, char *s2)
 {
 	while (*s1 == *s2)
@@ -51,7 +50,6 @@ int _strcmp(char *s1, char *s2)
 /**
  * _strlen - returns the length of a string
  * @s: string to evaluate
- *
  * Return: the length of the string
  */
 int _strlen(char *s)
@@ -77,19 +75,19 @@ int _strlen(char *s)
  */
 char *_strcpy(char *dest, char *src)
 {
-	int len = 0, i = 0;
+	int len = 0, r = 0;
 
 	while (src[len] != '\0')
 	{
 		len++;
 	}
 
-	while (i < len)
+	while (r < len)
 	{
-		dest[i] = src[i];
-		i++;
+		dest[r] = src[r];
+		r++;
 	}
-	dest[i] = '\0';
+	dest[r] = '\0';
 
 	return (dest);
 }
