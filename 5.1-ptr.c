@@ -16,7 +16,7 @@ void extrafunc(char **ex, char *res)
 	}
 	if (_strcmp(ex[0], "env") == 0)
 	{
-		int r = 0;	
+		int r = 0;
 		while (environ[r] != NULL)
 		{
 			write(STDOUT_FILENO, environ[r], _strlen(environ[r]));
