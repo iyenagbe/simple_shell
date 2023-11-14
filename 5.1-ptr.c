@@ -5,6 +5,7 @@
  * @ex: array of strings representing the command and its arguments.
  * @av: array of strings representing the command-line arguments.
  */
+
 void extrafunc(char **ex, char *res)
 {
 	if (_strcmp(ex[0], "exit") == 0)
@@ -52,6 +53,7 @@ int _strcmp(char *s1, char *s2)
  * @s: string to evaluate
  * Return: the length of the string
  */
+
 int _strlen(char *s)
 {
 	int strcount = 0;
@@ -70,9 +72,9 @@ int _strlen(char *s)
  * to the buffer pointed to by dest
  * @dest: pointer to the buffer in which we copy the string
  * @src: string to be copied
- *
  * Return: the pointer to dest
  */
+
 char *_strcpy(char *dest, char *src)
 {
 	int len = 0, r = 0;
@@ -96,9 +98,9 @@ char *_strcpy(char *dest, char *src)
  * _strcat - concatenates two strings
  * @dest: string to append to
  * @src: string to add
- *
  * Return: a pointer to the resulting string
  */
+
 char *_strcat(char *dest, char *src)
 {
 	int f = 0, s = 0;
