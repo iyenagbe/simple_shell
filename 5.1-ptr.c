@@ -2,19 +2,19 @@
 
 /**
  * extrafunc - Execute a command using fork and execve.
- * @ex: array of strings representing the command and its arguments.
+ * @pex: array of strings representing the command and its arguments.
  * @av: array of strings representing the command-line arguments.
  */
 
-void extrafunc(char **ex, char *res)
+void extrafunc(char **pex, char *res)
 {
-	if (_strcmp(ex[0], "exit") == 0)
+	if (_strcmp(pex[0], "exit") == 0)
 	{
 		free(res);
-		free_memory(ex);
+		free_memory(pex);
 		exit(EXIT_SUCCESS);
 	}
-	if (_strcmp(ex[0], "env") == 0)
+	if (_strcmp(pex[0], "env") == 0)
 	{
 		int r = 0;
 		while (environ[r] != NULL)

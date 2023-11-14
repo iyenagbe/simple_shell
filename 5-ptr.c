@@ -2,9 +2,10 @@
 
 /**
  * execute_command - Execute a command using fork and execve.
- * @ex: array of strings representing the command and its arguments.
+ * @pex: array of strings representing the command and its arguments.
  * @av: array of strings representing the command-line arguments.
  */
+
 void execute_command(char **ex, char **av)
 {
 	pid_t pr = fork();
