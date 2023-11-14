@@ -1,18 +1,20 @@
-		SIMPLE_SHELL TEAM PROJECT
+		ALX SIMPLE SHELL TEAM PROJECT
 
-CONTRIBUTORS.	 IYENAGBE RAYMOND OGEYANOR:
+CONTRIBUTORS;	 IYENAGBE RAYMOND OGEYANOR:
 		 OKON PATIENCE IMA-OBONG:
 
 This Project Was Written Using C Programming Language Shell Betty Linter
-General Requirement for project, all files are compiled on Ubuntu 20.04 LTS using gcc,
-using the options -Wall -Werror -Wextra -pedantic -std=gnu89 All files ends with a new line
-PROJECT DISCRIPTIONS:
+General Requirement for project;
 
-A README.md file at the root of the folder of the project is mandatory Used the Betty style to
-check using betty-style.pl and betty-doc.pl.
-Is a compulsory requirement from ALX. All header files should be include Guarded Write a README with
-the description of the Project Description hsh is a simple UNIX command.
-(How hsh works) Prints a prompt and waits for a command from the user.
+* All files are compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89.
+* All files ended with a new line.
+* A README.md file was created at the root of the folder of the project.
+* Betty style was use in the code as demanded by Alx and will be checked using betty-style.pl and betty-doc.pl.
+* All header files  include Guarded.
+* 
+
+- hsh is a simple UNIX command.
+(How hsh works) it Prints a prompt and waits for a command from the user.
 Creates a child process in which the command is Checks for builtins, aliases in the PATH,
 and local executable programs The child process is replaced by the command, 
 
