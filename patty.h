@@ -8,8 +8,8 @@
 #include <sys/wait.h>
 
 extern char **environ;
-void extrafunc(char **ex, char *res);
-void free_memory(char **ex);
+void extrafunc(char **pex, char *res);
+void free_memory(char **pex);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);

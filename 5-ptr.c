@@ -2,16 +2,17 @@
 
 /**
  * execute_command - Execute a command using fork and execve.
- * @ex: array of strings representing the command and its arguments.
+ * @pex: array of strings representing the command and its arguments.
  * @av: array of strings representing the command-line arguments.
  */
-void execute_command(char **ex, char **av)
+
+void execute_command(char **pex, char **av)
 {
 	pid_t pr = fork();
 
 	if (pr == 0)
 	{
-		if (execve(ex[0], ex, NULL) == -1)
+		if (execve(pex[0], pex, NULL) == -1)
 			perror(av[0]);
 	}
 	else
@@ -25,6 +26,7 @@ void execute_command(char **ex, char **av)
  * @env: array of environment variables.
  * Return: PATH variable value if found, otherwise NULL.
  */
+
 char *find_path_in_environ(char **env)
 {
 	size_t r = 0;
@@ -44,10 +46,11 @@ char *find_path_in_environ(char **env)
 /**
  * execute_with_path - Execute a command by
  * searching for it in the PATH variable.
- * @ex: array of strings representing the command and its arguments.
+ * @pex: array of strings representing the command and its arguments.
  * @av: array of strings representing the command-line arguments.
  */
-void execute_with_path(char **ex, char **av)
+
+void execute_with_path(char **pex, char **av)
 {
 	size_t r = 0;
 	char *path, *strt1, **pathdel, *pathenv;
@@ -62,15 +65,15 @@ void execute_with_path(char **ex, char **av)
 
 	while (strt1 != NULL)
 	{
-		pathdel[r] = malloc(_strlen(strt1) + 2 + _strlen(ex[0]));
+		pathdel[r] = malloc(_strlen(strt1) + 2 + _strlen(pex[0]));
 		_strcpy(pathdel[r], strt1);
 		_strcat(pathdel[r], "/");
-		_strcat(pathdel[r], ex[0]);
+		_strcat(pathdel[r], pex[0]);
 
 		if (access(pathdel[r], X_OK) == 0)
 		{
-			_strcpy(ex[0], pathdel[r]);
-			execute_command(ex, av);
+			_strcpy(pex[0], pathdel[r]);
+			execute_command(pex, av);
 			break;
 		}
 		r++;
@@ -91,19 +94,19 @@ void execute_with_path(char **ex, char **av)
 
 /**
  * free_memory - Free dynamically allocated memory.
- * @ex: array of strings to be freed.
+ * @pex: array of strings to be freed.
  */
-void free_memory(char **ex)
+void free_memory(char **pex)
 {
 	size_t r;
 
-	if (ex[0] != NULL)
+	if (pex[0] != NULL)
 	{
-		for (r = 0; ex[r] != NULL; r++)
-			free(ex[r]);
+		for (r = 0; pex[r] != NULL; r++)
+			free(pex[r]);
 	}
-	if (ex != NULL)
-		free(ex);
+	if (pex != NULL)
+		free(pex);
 }
 
 /**
@@ -115,7 +118,7 @@ void free_memory(char **ex)
 
 int main(int ac, char **av)
 {
-	char *res = NULL, *strt, *del = " \n", **ex;
+	char *res = NULL, *strt, *del = " \n", **pex;
 	size_t n = 0, r;
 	ssize_t arr;
 	(void)ac;
@@ -133,22 +136,22 @@ int main(int ac, char **av)
 		else if (arr == -1)
 			break;
 		strt = strtok(res, del);
-		ex = malloc(sizeof(char *) * (arr + 1));
+		pex = malloc(sizeof(char *) * (arr + 1));
 		r = 0;
 		while (strt != NULL)
 		{
-			ex[r] = malloc(sizeof(char *) * (_strlen(strt) + 1));
-			_strcpy(ex[r], strt);
+			pex[r] = malloc(sizeof(char *) * (_strlen(strt) + 1));
+			_strcpy(pex[r], strt);
 			r++;
 			strt = strtok(NULL, del);
 		}
-		ex[r] = NULL;
-		extrafunc(ex, res);
-		if (access(ex[0], X_OK) == 0)
-			execute_command(ex, av);
-		if (access(ex[0], X_OK) == -1)
-			execute_with_path(ex, av);
-		free_memory(ex);
+		pex[r] = NULL;
+		extrafunc(pex, res);
+		if (access(pex[0], X_OK) == 0)
+			execute_command(pex, av);
+		if (access(pex[0], X_OK) == -1)
+			execute_with_path(pex, av);
+		free_memory(pex);
 	}
 	if (res != NULL)
 		free(res);
