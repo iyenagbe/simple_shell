@@ -3,11 +3,13 @@
 /**
  * extrafunc - Execute a command using fork and execve.
  * @pex: array of strings representing the command and its arguments.
- * @av: array of strings representing the command-line arguments.
+ * @res: array of strings representing the command-line arguments.
  */
 
 void extrafunc(char **pex, char *res)
 {
+	int r;
+
 	if (_strcmp(pex[0], "exit") == 0)
 	{
 		free(res);
@@ -16,7 +18,8 @@ void extrafunc(char **pex, char *res)
 	}
 	if (_strcmp(pex[0], "env") == 0)
 	{
-		int r = 0;
+		r = 0;
+
 		while (environ[r] != NULL)
 		{
 			write(STDOUT_FILENO, environ[r], _strlen(environ[r]));
